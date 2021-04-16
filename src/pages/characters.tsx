@@ -7,6 +7,7 @@ import CharacterType from 'types/character'
 import Content from 'components/Content'
 import CharacterCard from 'components/CharacterCard'
 import Button from 'components/Button'
+import Back from 'components/Back'
 
 export async function getStaticProps() {
   const queryClient = new QueryClient()
@@ -52,6 +53,7 @@ function Characters() {
   return (
     <>
       <Content>
+        <Back />
         <h1>Characters</h1>
       </Content>
       <Content>
