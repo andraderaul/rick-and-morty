@@ -32,7 +32,7 @@ function Episode(props: EpisodeType) {
     <div>
       <Content>
         <Back />
-        <h1>{props.name}</h1>
+        <h1>Episode: {props.name}</h1>
       </Content>
 
       <Content>
