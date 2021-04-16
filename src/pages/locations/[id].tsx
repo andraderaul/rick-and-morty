@@ -6,6 +6,7 @@ import ROUTES from 'constants/urls'
 import { LOCATIONS } from 'constants/endpoints'
 import { getLocations, getLocationsById } from 'lib/location'
 import LocationType from 'types/location'
+import LocationTemplate from 'templates/Location'
 
 export async function getStaticPaths() {
   const data = await getLocations()
@@ -54,12 +55,7 @@ function Location() {
     return <p>erro :/</p>
   }
 
-  return (
-    <div>
-      <p>{data?.name}</p>
-      <p>{data?.dimension}</p>
-    </div>
-  )
+  return data && <LocationTemplate {...data} />
 }
 
 export default Location
