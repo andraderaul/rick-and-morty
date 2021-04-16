@@ -55,7 +55,7 @@ function Character() {
     return <p>erro :/</p>
   }
 
-  return <CharacterTemplate {...data} />
+  return data && <CharacterTemplate {...data} />
 }
 
 export default Character

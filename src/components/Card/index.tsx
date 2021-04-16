@@ -4,8 +4,8 @@ import * as S from './styles'
 
 type CardProps = {
   title: string
-  informative?: string
-  subtitle?: string
+  informative: string
+  subtitle: string
   href: string
 }
 
