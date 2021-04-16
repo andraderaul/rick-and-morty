@@ -32,7 +32,7 @@ function Location(props: LocationType) {
     <div>
       <Content>
         <Back />
-        <h1>{props.name}</h1>
+        <h1>Location: {props.name}</h1>
       </Content>
 
       <Content>

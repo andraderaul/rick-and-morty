@@ -38,7 +38,7 @@ function Character(props: CharacterType) {
     <div>
       <Content>
         <Back />
-        <h1>{props.name}</h1>
+        <h1>Character: {props.name}</h1>
       </Content>
 
       <Content>
