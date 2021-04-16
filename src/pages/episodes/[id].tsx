@@ -6,6 +6,7 @@ import ROUTES from 'constants/urls'
 import { EPISODES } from 'constants/endpoints'
 import { getEpisodes, getEpisodesById } from 'lib/episodes'
 import EpisodeType from 'types/episode'
+import EpisodeTemplate from 'templates/Episode'
 
 export async function getStaticPaths() {
   const data = await getEpisodes()
@@ -54,12 +55,7 @@ function Episode() {
     return <p>erro :/</p>
   }
 
-  return (
-    <div>
-      <p>{data?.name}</p>
-      <p>{data?.episode}</p>
-    </div>
-  )
+  return data && <EpisodeTemplate {...data} />
 }
 
 export default Episode
