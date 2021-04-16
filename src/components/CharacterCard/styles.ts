@@ -75,7 +75,7 @@ export const Info = styled.div`
 `
 
 type InfoTitle = {
-  status: string
+  status?: string
 }
 
 export const InfoTitle = styled(Info)<InfoTitle>`
