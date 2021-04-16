@@ -6,6 +6,7 @@ import ROUTES from 'constants/urls'
 import { CHARACTERS } from 'constants/endpoints'
 import { getCharacters, getCharactersById } from 'lib/characters'
 import CharacterType from 'types/character'
+import CharacterTemplate from 'templates/Character'
 
 export async function getStaticPaths() {
   const data = await getCharacters()
@@ -54,12 +55,7 @@ function Character() {
     return <p>erro :/</p>
   }
 
-  return (
-    <div>
-      <p>{data?.name}</p>
-      <p>{data?.species}</p>
-    </div>
-  )
+  return <CharacterTemplate {...data} />
 }
 
 export default Character

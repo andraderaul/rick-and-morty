@@ -8,6 +8,7 @@ import Content from 'components/Content'
 import Card from 'components/Card'
 import ROUTES from 'constants/urls'
 import Button from 'components/Button'
+import Back from 'components/Back'
 
 export async function getStaticProps() {
   const queryClient = new QueryClient()
@@ -53,6 +54,7 @@ function Locations() {
   return (
     <>
       <Content>
+        <Back />
         <h1>Locations</h1>
       </Content>
       <Content>

@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import React, { useMemo } from 'react'
 import { QueryClient, useInfiniteQuery } from 'react-query'
 import { dehydrate } from 'react-query/hydration'
 import { getEpisodes } from 'lib/episodes'
@@ -8,6 +8,7 @@ import Content from 'components/Content'
 import Card from 'components/Card'
 import ROUTES from 'constants/urls'
 import Button from 'components/Button'
+import Back from 'components/Back'
 
 export async function getStaticProps() {
   const queryClient = new QueryClient()
@@ -53,6 +54,7 @@ function Episodes() {
   return (
     <>
       <Content>
+        <Back />
         <h1>Episodes</h1>
       </Content>
       <Content>
