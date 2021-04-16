@@ -20,14 +20,16 @@ function CharacterEpisodes({ id }: CharacterEpisodesProps) {
     return null
   }
 
-  return (
+  return data ? (
     <Card
-      key={`character-episodes-${data?.id}`}
-      title={data?.name || 'unknown'}
-      informative={data?.episode}
-      subtitle={data?.air_date}
-      href={`${ROUTES.EPISODES}/${data?.id}`}
+      key={`character-episodes-${data.id}`}
+      title={data.name}
+      informative={data.episode}
+      subtitle={data.air_date}
+      href={`${ROUTES.EPISODES}/${data.id}`}
     />
+  ) : (
+    <div />
   )
 }
 
@@ -48,7 +50,7 @@ function Character(props: CharacterType) {
       </Content>
 
       <Content>
-        {props?.episode.map((episode: string) => {
+        {props.episode.map((episode: string) => {
           const episodeUrlParts = episode.split('/').filter(Boolean)
           const episodeId = episodeUrlParts[episodeUrlParts.length - 1]
 

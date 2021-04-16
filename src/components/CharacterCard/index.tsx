@@ -9,10 +9,10 @@ import CharacterType from 'types/character'
 import * as S from './styles'
 
 type InfoTitleProps = {
-  id?: string | number
-  name?: string
-  status?: string
-  species?: string
+  id: string | number
+  name: string
+  status: string
+  species: string
 }
 
 type InfoDescriptionProps = {
