@@ -1,3 +1,4 @@
+import NextNprogress from 'nextjs-progressbar'
 import { useRef } from 'react'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
@@ -23,7 +24,7 @@ function App({ Component, pageProps }: AppProps): JSX.Element {
         <link rel="shortcut icon" href="/img/icon-512.png" />
         <link rel="apple-touch-icon" href="/img/icon-512.png" />
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="rgb(36, 40, 47)" />
+        <meta name="theme-color" content={theme.colors.body} />
         <meta
           name="description"
           content="A simple project started to work with Typescript, React, NextJS, React-Query and Styled Components"
@@ -32,6 +33,12 @@ function App({ Component, pageProps }: AppProps): JSX.Element {
       <QueryClientProvider client={queryClientRef.current}>
         <Hydrate state={pageProps.deHydratedState}>
           <GlobalStyles />
+          <NextNprogress
+            color={theme.colors.red}
+            startPosition={0.3}
+            stopDelayMs={200}
+            height={3}
+          />
           <ThemeProvider theme={theme}>
             <Layout>
               <Component {...pageProps} />
