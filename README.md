@@ -18,6 +18,7 @@ A api consumida nesta aplicação foi a [Rick and Morty - Api](https://rickandmo
 
 ## Demo
 Demonstração online da aplicação: https://rick-and-morty-web.vercel.app/
+
 Demonstração do storybook: https://andraderaul.github.io/rick-and-morty/
 
 ## Instalação
