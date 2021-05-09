@@ -1,12 +1,17 @@
 import { useMemo, useCallback } from 'react'
 import { useQuery } from 'react-query'
-import { EPISODES } from 'constants/endpoints'
-import { getEpisodesById } from 'lib/episodes'
-import ROUTES from 'constants/urls'
+import { EPISODES } from '../../constants/endpoints'
+import { getEpisodesById } from '../../lib/episodes'
+import ROUTES from '../../constants/urls'
 import Link from 'next/link'
 import CharacterType from 'types/character'
 
 import * as S from './styles'
+
+type CharacterCardProps = Omit<
+  CharacterType,
+  'origin' | 'gender' | 'type' | 'url'
+>
 
 type InfoTitleProps = {
   id: string | number
@@ -52,7 +57,7 @@ function CharacterCard({
   image,
   location,
   episode
-}: CharacterType) {
+}: CharacterCardProps) {
   const split = useCallback((value: string) => {
     const parts = value.split('/')
     return parts[parts.length - 1]
