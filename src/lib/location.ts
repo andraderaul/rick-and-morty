@@ -1,7 +1,7 @@
 import { QueryFunctionContext } from 'react-query'
-import api from 'services/api'
+import api from '../services/api'
 import { LOCATIONS } from 'constants/endpoints'
-import { GET } from 'constants/verbs'
+import { GET } from '../constants/verbs'
 import LocationType from 'types/location'
 import InfoType from 'types/info'
 

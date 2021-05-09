@@ -1,6 +1,6 @@
 import { QueryFunctionContext } from 'react-query'
-import api from 'services/api'
-import { CHARACTERS } from 'constants/endpoints'
+import api from '../services/api'
+import { CHARACTERS } from '../constants/endpoints'
 import CharacterType from 'types/character'
 import InfoType from 'types/info'
 import { GET } from 'constants/verbs'

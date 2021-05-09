@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
-
+import theme from './theme'
 const GlobalStyles = createGlobalStyle`
   *{
     margin: 0;
@@ -18,6 +18,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color:${theme.colors.body}
   }
 
 `
