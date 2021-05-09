@@ -1,9 +1,9 @@
 import { QueryFunctionContext } from 'react-query'
-import { EPISODES } from 'constants/endpoints'
-import { GET } from 'constants/verbs'
+import { EPISODES } from '../constants/endpoints'
+import { GET } from '../constants/verbs'
 import EpisodeType from 'types/episode'
 import InfoType from 'types/info'
-import api from 'services/api'
+import api from '../services/api'
 
 type ResponseEpisode = {
   info: InfoType
