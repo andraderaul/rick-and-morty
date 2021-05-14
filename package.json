@@ -11,6 +11,7 @@
     "prepare": "husky install",
     "test": "jest",
     "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
     "storybook": "start-storybook -p 9009",
     "build-storybook": "build-storybook",
     "deploy-storybook": "gh-pages -d storybook-static"
