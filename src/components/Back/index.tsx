@@ -6,11 +6,11 @@ function Back() {
   const router = useRouter()
 
   const goBack = useCallback(() => {
-    router.back()
+    router?.back()
   }, [router])
 
   return (
-    <S.WrapperBack onClick={goBack}>
+    <S.WrapperBack onClick={goBack} data-testid="back">
       <S.Back />
     </S.WrapperBack>
   )
