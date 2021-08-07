@@ -26,7 +26,7 @@ Instalação usando [yarn](https://yarnpkg.com/)
 ```bash
 git clone https://github.com/andraderaul/rick-and-morty.git
 cd rick-and-morty
-yarn 
+yarn
 yarn dev
 ```
 Os comandos listados acima são para realizar o clone do repositório, baixar as dependências e por o servidor de desenvolvimento no ar no ``http://localhost:3000/``
@@ -40,3 +40,4 @@ Os comandos listados acima são para realizar o clone do repositório, baixar as
 - [Axios](https://github.com/axios/axios)
 - [Storybook](https://storybook.js.org/)
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+- [MSW JS](https://mswjs.io/)
