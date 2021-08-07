@@ -72,7 +72,7 @@ function CharacterCard({
   )
 
   return (
-    <S.Card>
+    <S.Card aria-label="character">
       <S.Figure>
         <img src={image} alt={name} />
       </S.Figure>

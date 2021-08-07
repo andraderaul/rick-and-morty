@@ -16,8 +16,9 @@ function CharacterEpisodes({ id }: CharacterEpisodesProps) {
   const { data, isError } = useQuery(`${EPISODES}/${id}`, () =>
     getEpisodesById(id)
   )
+
   if (isError) {
-    return null
+    return <p>Not found episodes</p>
   }
 
   return data ? (
@@ -28,9 +29,7 @@ function CharacterEpisodes({ id }: CharacterEpisodesProps) {
       subtitle={data.air_date}
       href={`${ROUTES.EPISODES}/${data.id}`}
     />
-  ) : (
-    <div />
-  )
+  ) : null
 }
 
 function Character(props: CharacterType) {

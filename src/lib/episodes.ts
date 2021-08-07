@@ -13,23 +13,30 @@ type ResponseEpisode = {
 export async function getEpisodes(
   context?: QueryFunctionContext
 ): Promise<ResponseEpisode> {
-  const params = context?.pageParam ? `?${context?.pageParam}` : ''
+  try {
+    const params = context?.pageParam ? `?${context?.pageParam}` : ''
 
-  const { data } = await api({
-    method: GET,
-    url: `${EPISODES}${params}`
-  })
+    const { data } = await api<ResponseEpisode>({
+      method: GET,
+      url: `${EPISODES}${params}`
+    })
 
-  return data
+    return data
+  } catch (error) {
+    return Promise.reject(error)
+  }
 }
 
 export async function getEpisodesById(
   id: number | string
 ): Promise<EpisodeType> {
-  const { data } = await api({
-    method: GET,
-    url: `${EPISODES}/${id}`
-  })
-
-  return data
+  try {
+    const { data } = await api<EpisodeType>({
+      method: GET,
+      url: `${EPISODES}/${id}`
+    })
+    return data
+  } catch (error) {
+    return Promise.reject(error)
+  }
 }

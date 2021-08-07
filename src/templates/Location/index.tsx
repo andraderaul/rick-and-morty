@@ -16,15 +16,14 @@ function LocationCharacter({ id }: LocationCharacterProps) {
   const { data, isError } = useQuery(`${CHARACTERS}/${id}`, () =>
     getCharactersById(id)
   )
+
   if (isError) {
-    return null
+    return <p>Not found character</p>
   }
 
   return data ? (
     <CharacterCard {...data} key={`character-location-${data.id}`} />
-  ) : (
-    <div />
-  )
+  ) : null
 }
 
 function Location(props: LocationType) {

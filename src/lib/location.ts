@@ -15,7 +15,7 @@ export async function getLocations(
 ): Promise<ResponseLocation> {
   const params = context?.pageParam ? `?${context?.pageParam}` : ''
 
-  const { data } = await api({
+  const { data } = await api<ResponseLocation>({
     method: GET,
     url: `${LOCATIONS}${params}`
   })
@@ -26,7 +26,7 @@ export async function getLocations(
 export async function getLocationsById(
   id: number | string
 ): Promise<LocationType> {
-  const { data } = await api({
+  const { data } = await api<LocationType>({
     method: GET,
     url: `${LOCATIONS}/${id}`
   })

@@ -15,7 +15,7 @@ export async function getCharacters(
 ): Promise<ResponseCharacters> {
   const params = context?.pageParam ? `?${context?.pageParam}` : ''
 
-  const { data } = await api({
+  const { data } = await api<ResponseCharacters>({
     method: GET,
     url: `${CHARACTERS}${params}`
   })
@@ -26,7 +26,7 @@ export async function getCharacters(
 export async function getCharactersById(
   id: number | string
 ): Promise<CharacterType> {
-  const { data } = await api({
+  const { data } = await api<CharacterType>({
     method: GET,
     url: `${CHARACTERS}/${id}`
   })

@@ -11,7 +11,7 @@ type CardProps = {
 
 function Card({ title, informative, subtitle, href }: CardProps) {
   return (
-    <S.Card>
+    <S.Card aria-label="card">
       <S.ContentTitle>
         <h2>
           <Link href={href}>{title}</Link>

@@ -16,15 +16,14 @@ function EpisodesCharacter({ id }: EpisodesCharacterProps) {
   const { data, isError } = useQuery(`${CHARACTERS}/${id}`, () =>
     getCharactersById(id)
   )
+
   if (isError) {
-    return null
+    return <p>Not found character</p>
   }
 
   return data ? (
     <CharacterCard {...data} key={`character-episodes-${data.id}`} />
-  ) : (
-    <div />
-  )
+  ) : null
 }
 
 function Episode(props: EpisodeType) {
