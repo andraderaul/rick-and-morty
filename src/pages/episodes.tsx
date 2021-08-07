@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react'
-import { QueryClient, useInfiniteQuery } from 'react-query'
+import { QueryClient } from 'react-query'
 import { dehydrate } from 'react-query/hydration'
 import { getEpisodes } from 'lib/episodes'
 import { EPISODES } from 'constants/endpoints'
@@ -9,6 +9,7 @@ import Card from 'components/Card'
 import ROUTES from 'constants/urls'
 import Button from 'components/Button'
 import Back from 'components/Back'
+import { useEpisodesQuery } from 'queries/useEpisodesQuery'
 
 export async function getStaticProps() {
   const queryClient = new QueryClient()
@@ -29,10 +30,7 @@ function Episodes() {
     data,
     hasNextPage,
     fetchNextPage
-  } = useInfiniteQuery(EPISODES, getEpisodes, {
-    getNextPageParam: (lastPage) =>
-      lastPage.info.next ? lastPage.info.next.split('?')[1] : null
-  })
+  } = useEpisodesQuery()
 
   const renderData = useMemo(
     () =>

@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { QueryClient, useInfiniteQuery } from 'react-query'
+import { QueryClient } from 'react-query'
 import { dehydrate } from 'react-query/hydration'
 import { getLocations } from 'lib/location'
 import { LOCATIONS } from 'constants/endpoints'
@@ -9,6 +9,7 @@ import Card from 'components/Card'
 import ROUTES from 'constants/urls'
 import Button from 'components/Button'
 import Back from 'components/Back'
+import { useLocationsQuery } from 'queries/useLocationQuery'
 
 export async function getStaticProps() {
   const queryClient = new QueryClient()
@@ -29,10 +30,7 @@ function Locations() {
     data,
     hasNextPage,
     fetchNextPage
-  } = useInfiniteQuery(LOCATIONS, getLocations, {
-    getNextPageParam: (lastPage) =>
-      lastPage.info.next ? lastPage.info.next.split('?')[1] : null
-  })
+  } = useLocationsQuery()
 
   const renderData = useMemo(
     () =>

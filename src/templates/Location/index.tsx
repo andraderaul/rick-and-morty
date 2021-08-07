@@ -1,21 +1,17 @@
-import { useQuery } from 'react-query'
 import Content from 'components/Content'
 import Back from 'components/Back'
 import Card from 'components/Card'
 import ROUTES from 'constants/urls'
 import LocationType from 'types/location'
-import { CHARACTERS } from 'constants/endpoints'
 import CharacterCard from 'components/CharacterCard'
-import { getCharactersById } from 'lib/characters'
+import { useCharacterQuery } from 'queries/useCharactersQuery'
 
 type LocationCharacterProps = {
   id: string | number
 }
 
 function LocationCharacter({ id }: LocationCharacterProps) {
-  const { data, isError } = useQuery(`${CHARACTERS}/${id}`, () =>
-    getCharactersById(id)
-  )
+  const { data, isError } = useCharacterQuery(id)
 
   if (isError) {
     return <p>Not found character</p>

@@ -13,23 +13,31 @@ type ResponseCharacters = {
 export async function getCharacters(
   context?: QueryFunctionContext
 ): Promise<ResponseCharacters> {
-  const params = context?.pageParam ? `?${context?.pageParam}` : ''
+  try {
+    const params = context?.pageParam ? `?${context?.pageParam}` : ''
 
-  const { data } = await api<ResponseCharacters>({
-    method: GET,
-    url: `${CHARACTERS}${params}`
-  })
+    const { data } = await api<ResponseCharacters>({
+      method: GET,
+      url: `${CHARACTERS}${params}`
+    })
 
-  return data
+    return data
+  } catch (error) {
+    return Promise.reject(error)
+  }
 }
 
 export async function getCharactersById(
   id: number | string
 ): Promise<CharacterType> {
-  const { data } = await api<CharacterType>({
-    method: GET,
-    url: `${CHARACTERS}/${id}`
-  })
+  try {
+    const { data } = await api<CharacterType>({
+      method: GET,
+      url: `${CHARACTERS}/${id}`
+    })
 
-  return data
+    return data
+  } catch (error) {
+    return Promise.reject(error)
+  }
 }

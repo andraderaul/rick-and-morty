@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { QueryClient, useInfiniteQuery } from 'react-query'
+import { QueryClient } from 'react-query'
 import { dehydrate } from 'react-query/hydration'
 import { getCharacters } from 'lib/characters'
 import { CHARACTERS } from 'constants/endpoints'
@@ -8,6 +8,7 @@ import Content from 'components/Content'
 import CharacterCard from 'components/CharacterCard'
 import Button from 'components/Button'
 import Back from 'components/Back'
+import { useCharactersQuery } from 'queries/useCharactersQuery'
 
 export async function getStaticProps() {
   const queryClient = new QueryClient()
@@ -28,10 +29,7 @@ function Characters() {
     data,
     hasNextPage,
     fetchNextPage
-  } = useInfiniteQuery(CHARACTERS, getCharacters, {
-    getNextPageParam: (lastPage) =>
-      lastPage.info.next ? lastPage.info.next.split('?')[1] : null
-  })
+  } = useCharactersQuery()
 
   const renderData = useMemo(
     () =>

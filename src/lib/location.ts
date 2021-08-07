@@ -13,23 +13,31 @@ type ResponseLocation = {
 export async function getLocations(
   context?: QueryFunctionContext
 ): Promise<ResponseLocation> {
-  const params = context?.pageParam ? `?${context?.pageParam}` : ''
+  try {
+    const params = context?.pageParam ? `?${context?.pageParam}` : ''
 
-  const { data } = await api<ResponseLocation>({
-    method: GET,
-    url: `${LOCATIONS}${params}`
-  })
+    const { data } = await api<ResponseLocation>({
+      method: GET,
+      url: `${LOCATIONS}${params}`
+    })
 
-  return data
+    return data
+  } catch (error) {
+    return Promise.reject(error)
+  }
 }
 
 export async function getLocationsById(
   id: number | string
 ): Promise<LocationType> {
-  const { data } = await api<LocationType>({
-    method: GET,
-    url: `${LOCATIONS}/${id}`
-  })
+  try {
+    const { data } = await api<LocationType>({
+      method: GET,
+      url: `${LOCATIONS}/${id}`
+    })
 
-  return data
+    return data
+  } catch (error) {
+    return Promise.reject(error)
+  }
 }

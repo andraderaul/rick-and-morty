@@ -1,21 +1,17 @@
-import { useQuery } from 'react-query'
 import CharacterCard from 'components/CharacterCard'
 import Card from 'components/Card'
 import CharacterType from 'types/character'
-import { EPISODES } from 'constants/endpoints'
-import { getEpisodesById } from 'lib/episodes'
 import ROUTES from 'constants/urls'
 import Content from 'components/Content'
 import Back from 'components/Back'
+import { useEpisodeQuery } from 'queries/useEpisodesQuery'
 
 type CharacterEpisodesProps = {
   id: string | number
 }
 
 function CharacterEpisodes({ id }: CharacterEpisodesProps) {
-  const { data, isError } = useQuery(`${EPISODES}/${id}`, () =>
-    getEpisodesById(id)
-  )
+  const { data, isError } = useEpisodeQuery(id)
 
   if (isError) {
     return <p>Not found episodes</p>
