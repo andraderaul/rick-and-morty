@@ -39,12 +39,9 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 function Location() {
   const router = useRouter()
 
-  const {
-    isError,
-    isLoading,
-    data
-  } = useQuery(`${LOCATIONS}/${router.query.id}`, () =>
-    getLocationsById(`${router.query?.id}`)
+  const { isError, isLoading, data } = useQuery(
+    `${LOCATIONS}/${router.query.id}`,
+    () => getLocationsById(`${router.query?.id}`)
   )
 
   if (isLoading) {

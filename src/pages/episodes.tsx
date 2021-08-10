@@ -24,13 +24,8 @@ export async function getStaticProps() {
 }
 
 function Episodes() {
-  const {
-    isError,
-    isLoading,
-    data,
-    hasNextPage,
-    fetchNextPage
-  } = useEpisodesQuery()
+  const { isError, isLoading, data, hasNextPage, fetchNextPage } =
+    useEpisodesQuery()
 
   const renderData = useMemo(
     () =>

@@ -24,13 +24,8 @@ export async function getStaticProps() {
 }
 
 function Locations() {
-  const {
-    isError,
-    isLoading,
-    data,
-    hasNextPage,
-    fetchNextPage
-  } = useLocationsQuery()
+  const { isError, isLoading, data, hasNextPage, fetchNextPage } =
+    useLocationsQuery()
 
   const renderData = useMemo(
     () =>

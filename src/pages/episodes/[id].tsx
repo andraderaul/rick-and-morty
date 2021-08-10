@@ -39,12 +39,9 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 function Episode() {
   const router = useRouter()
 
-  const {
-    isError,
-    isLoading,
-    data
-  } = useQuery(`${EPISODES}/${router.query.id}`, () =>
-    getEpisodesById(`${router.query?.id}`)
+  const { isError, isLoading, data } = useQuery(
+    `${EPISODES}/${router.query.id}`,
+    () => getEpisodesById(`${router.query?.id}`)
   )
 
   if (isLoading) {

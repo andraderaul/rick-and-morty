@@ -23,13 +23,8 @@ export async function getStaticProps() {
 }
 
 function Characters() {
-  const {
-    isError,
-    isLoading,
-    data,
-    hasNextPage,
-    fetchNextPage
-  } = useCharactersQuery()
+  const { isError, isLoading, data, hasNextPage, fetchNextPage } =
+    useCharactersQuery()
 
   const renderData = useMemo(
     () =>
