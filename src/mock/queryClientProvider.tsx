@@ -3,13 +3,23 @@ import { ThemeProvider } from 'styled-components'
 import { render } from '@testing-library/react'
 import theme from '../styles/theme'
 
-const testingQueryClient = new QueryClient({
+export const testingQueryClient = new QueryClient({
   defaultOptions: {
     queries: {
       retry: false
     }
   }
 })
+
+type PropsWithChildren = {
+  children: React.ReactNode
+}
+
+export const wrapper = ({ children }: PropsWithChildren) => (
+  <QueryClientProvider client={testingQueryClient}>
+    {children}
+  </QueryClientProvider>
+)
 
 type DefaultParams = Parameters<typeof render>
 type RenderUI = DefaultParams[0]
